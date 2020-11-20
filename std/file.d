@@ -5228,8 +5228,7 @@ slurp(Types...)(string filename, scope const(char)[] format)
 
     write(deleteme, "12 12.25\n345 1.125"); // deleteme is the name of a temporary file
 
-    // Load file; each line is an int followed by comma, whitespace and a
-    // double.
+    // Load file; each line is an int followed by whitespace and a double.
     auto a = slurp!(int, double)(deleteme, "%s %s");
     assert(a.length == 2);
     assert(a[0] == tuple(12, 12.25));
